@@ -10,7 +10,7 @@ public class Alien {
     private int aid;
 //    @Transient
     private String aname;
-    @Column(name = "alien_color")
+//    @Column(name = "alien_color"
     private String color;
 
     public int getAid() {
@@ -26,7 +26,7 @@ public class Alien {
     }
 
     public void setAname(String aname) {
-        this.aname = aname;
+            this.aname = aname;
     }
 
     public String getColor() {

@@ -2,8 +2,7 @@ package hibodemo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-
+import jakarta.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,14 +12,14 @@ public class Student {
     private int rollNo;
     private String name;
     private int marks;
-    @OneToOne
+    @ManyToMany(mappedBy = "student")
     private List<Laptop> laptop = new ArrayList<>();
 
-    public Laptop getLaptop() {
+    public List<Laptop> getLaptop() {
         return laptop;
     }
 
-    public void setLaptop(Laptop laptop) {
+    public void setLaptop(List<Laptop> laptop) {
         this.laptop = laptop;
     }
 

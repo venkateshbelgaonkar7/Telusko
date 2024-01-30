@@ -16,7 +16,9 @@ public class MyApp {
         student.setName("Naveen");
         student.setRollNo(1);
         student.setMarks(100);
-        student.setLaptop(laptop);
+        student.getLaptop().add(laptop);
+
+        laptop.getStudent().add(student);
 
         Configuration config = new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
@@ -24,9 +26,10 @@ public class MyApp {
         Session session = sessionFactory.openSession();
 
         session.beginTransaction();
-        session.save(laptop);
-        session.save(student);
+        session.persist(laptop);
+        session.persist(student);
 
+        session.getTransaction().commit();
 
     }
 }
